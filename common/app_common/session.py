@@ -33,7 +33,7 @@ def driver_begin(app):
         "platformName": "Android",
         "platformVersion": "7.1.2",
         "deviceName": "emulator-5554",
-        "appPackage": "uni.UNI25A295E",
-        "appActivity": "io.dcloud.PandoraEntryActivity"
+        "appPackage": "com.wanteng.handheldcity",
+        "appActivity": "activity.HandheldLoginActivity"
     }
     return webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)

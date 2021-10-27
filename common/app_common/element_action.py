@@ -26,8 +26,7 @@ def looking_for_element(driver, type, section_name, name):  # 根据元素类型
             return WebDriverWait(driver, 30).until(lambda x: x.find_element_by_id(the_name1))
         if type == 'location_type':  # tap
             the_name2 = read_ini(ini_file_path=load_file('location_ini'), name=section_name, value=name)
-            print(the_name2)
-            return WebDriverWait(driver, 30).until(lambda x: x.tap(the_name2, 1000))
+            return WebDriverWait(driver, 30).until(lambda x: x.tap(list(the_name2), 1000))
         if type == 'xpath_type':  # xpath
             the_name4 = read_ini(ini_file_path=load_file('xpath_ini'), name=section_name, value=name)
             print(the_name4)

@@ -12,20 +12,33 @@ class TestAboutSend(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):  # setUpClass所有用例开始前执行一遍，但是必须使用类函数装饰器
-        cls.driver = driver_begin(app_name_JSC)
+        cls.driver = driver_begin(app_name)
         log.debug("初始化APP，测试数据初始化")
+
+    @skip
+    @tag(Tag.UI_F1)
+    def test_skip_shuffling(self):
+        """跳过轮播图"""
+        time.sleep(1)
+        BasePage(driver=self.driver).skip_shuffling()
+
+    @tag(Tag.UI_F1)
+    def test_skip_agreement(self):
+        """同意协议"""
+        time.sleep(1)
+        BasePage(driver=self.driver).skip_agreement()
+
+    @tag(Tag.UI_F1)
+    def test_login(self):
+        """登录"""
+        BasePage(driver=self.driver).login_base(user_number=user,password=password)
 
     @tag(Tag.UI_F1)
     def test_skip_limits(self):
         """第一次进入APP的权限弹窗"""
-        time.sleep(3)
+        time.sleep(1)
         BasePage(driver=self.driver).skip_limits()
 
-
-    @tag(Tag.UI_F1)
-    def test_login(self):
-        """测试登陆操作"""
-        BasePage(driver=self.driver).login_base(user_number=user_1,password=password)
 
 
     @skip

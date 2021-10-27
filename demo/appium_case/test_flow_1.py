@@ -11,7 +11,7 @@ class TestAbout(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):  # setUpClass所有用例开始前执行一遍，但是必须使用类函数装饰器
-        cls.driver = driver_begin(app_name_nly)
+        cls.driver = driver_begin(app_name)
         log.debug("初始化APP，测试数据初始化")
         time.sleep(1)
         log.info("开始执行登录操作")

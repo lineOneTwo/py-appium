@@ -12,9 +12,9 @@ from utx import Tag, tag
 class TestInstallUninstall(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.app = '领导驾驶舱'
+        cls.app = '掌上平城'
         cls.package = read_package_name(cls.app)
-        cls.apk_path = r"E:\JSC.apk"
+        cls.apk_path = r"E:\zspc.apk"
 
     # @tag(Tag.INSTALL)
     # def test_install_status(self):
