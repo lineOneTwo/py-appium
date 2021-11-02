@@ -22,7 +22,6 @@ def looking_for_element(driver, type, section_name, name):  # 根据元素类型
             return WebDriverWait(driver, 30).until(lambda x: x.find_element_by_class_name(the_name))
         if type == 'id_type':  # id
             the_name1 = read_ini(ini_file_path=load_file('id_ini'), name=section_name, value=name)
-            print(the_name1)
             return WebDriverWait(driver, 30).until(lambda x: x.find_element_by_id(the_name1))
         if type == 'location_type':  # tap
             the_name2 = read_ini(ini_file_path=load_file('location_ini'), name=section_name, value=name)
@@ -46,7 +45,7 @@ def clicking(driver, type, section_name, name):  # 点击
 
 def inputting(driver, type, section_name, name, txt):  # 输入内容
     looking_for_element(driver=driver, type=type, section_name=section_name, name=name).send_keys(txt)
-
+    print("输入")
 
 def taping(driver, type, section_name, name):  # 点击
     looking_for_element(driver=driver, type=type, section_name=section_name, name=name)

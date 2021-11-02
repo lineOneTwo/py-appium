@@ -27,17 +27,28 @@ class TestAboutSend(unittest.TestCase):
         """同意协议"""
         time.sleep(1)
         BasePage(driver=self.driver).skip_agreement()
+        time.sleep(3)
 
+    @skip
     @tag(Tag.UI_F1)
     def test_login(self):
         """登录"""
         BasePage(driver=self.driver).login_base(user_number=user,password=password)
 
+
+    @skip
     @tag(Tag.UI_F1)
     def test_skip_limits(self):
         """第一次进入APP的权限弹窗"""
         time.sleep(1)
         BasePage(driver=self.driver).skip_limits()
+
+
+    @tag(Tag.UI_F1)
+    def test_reset_password(self):
+        """找回密码"""
+        time.sleep(1)
+        BasePage(driver=self.driver).reset_password()
 
 
 

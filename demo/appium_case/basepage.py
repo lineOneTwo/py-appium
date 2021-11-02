@@ -19,10 +19,10 @@ class BasePage():
         time.sleep(1)
         log.info("开始执行登录操作")
         log.info("----" * 15)
-        inputting(driver=self.driver, type='id_type', section_name='登录', name='账号', txt=user_number)
-        log.info("输入账号")
-        inputting(driver=self.driver, type='id_type', section_name='登录', name='密码' , txt=password)
-        log.info("输入密码")
+        # inputting(driver=self.driver, type='id_type', section_name='登录', name='账号', txt=user_number)
+        # log.info("输入账号")
+        # inputting(driver=self.driver, type='id_type', section_name='登录', name='密码' , txt=password)
+        # log.info("输入密码")
         clicking(driver=self.driver, type='id_type', section_name='登录', name='登录按钮')
         log.info("点击登录")
 
@@ -40,3 +40,8 @@ class BasePage():
         for i in range(5):
             clicking(driver=self.driver, type='id_type', section_name='权限', name='允许')
             time.sleep(1.5)
+
+    def reset_password(self):
+        time.sleep(3)
+        log.info("找回密码")
+        clicking(driver=self.driver,type='id_type',section_name='找回密码',name='找回')
