@@ -6,7 +6,7 @@ def load_file(a):
     class_name_ini_path = os.path.abspath(os.path.dirname(__file__)) + "\class_name.ini"
     location_ini_path = os.path.abspath(os.path.dirname(__file__)) + "\location.ini"
     x_path_ini_path = os.path.abspath(os.path.dirname(__file__)) +"\path.ini"
-    app_ini_path=os.path.abspath(os.path.dirname(__file__)) +r"\appPadkage_appActivity.ini"
+    app_ini_path=os.path.abspath(os.path.dirname(__file__)) +r"\app_conf.ini"
     parameter_ini_path=os.path.abspath(os.path.dirname(__file__)) +"\parameter.ini"
     text_ini_path=os.path.abspath(os.path.dirname(__file__))+ r"\text.ini"
     dict_load = {
@@ -22,7 +22,7 @@ def load_file(a):
          print(dict_load[a])
          return dict_load[a]
 # if __name__ == '__main__':
-#     load_file('app_conf')
+#     load_file('text_ini')
 
 
 
