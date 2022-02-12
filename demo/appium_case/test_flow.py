@@ -14,7 +14,6 @@ class TestAboutSend(unittest.TestCase):
     def setUpClass(cls):  # setUpClass所有用例开始前执行一遍，但是必须使用类函数装饰器
         cls.driver = driver_begin(app_name)
         log.debug("初始化APP，测试数据初始化")
-
     @skip
     @tag(Tag.UI_F1)
     def test_skip_shuffling(self):
@@ -27,7 +26,7 @@ class TestAboutSend(unittest.TestCase):
         """同意协议"""
         time.sleep(1)
         BasePage(driver=self.driver).skip_agreement()
-        time.sleep(3)
+        time.sleep(10)
 
     @skip
     @tag(Tag.UI_F1)
@@ -35,6 +34,10 @@ class TestAboutSend(unittest.TestCase):
         """登录"""
         BasePage(driver=self.driver).login_base(user_number=user,password=password)
 
+    @tag(Tag.UI_F1)
+    def test_registry(self):
+        """点击注册按钮"""
+        BasePage(driver=self.driver).registry()
 
     @skip
     @tag(Tag.UI_F1)
@@ -43,7 +46,7 @@ class TestAboutSend(unittest.TestCase):
         time.sleep(1)
         BasePage(driver=self.driver).skip_limits()
 
-
+    @skip
     @tag(Tag.UI_F1)
     def test_reset_password(self):
         """找回密码"""

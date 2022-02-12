@@ -12,8 +12,8 @@ if __name__ == '__main__':
     setting.max_case_name_len = 80  # 测试报告内，显示用例名字的最大程度
     setting.show_error_traceback = True  # 执行用例的时候，显示报错信息
     setting.sort_case = True  # 是否按照编写顺序，对用例进行排序
-    setting.create_report_by_style_1 = False  # 测试报告样式1
-    setting.create_report_by_style_2 = True  # 测试报告样式2
+    setting.create_report_by_style_1 = True  # 测试报告样式1
+    setting.create_report_by_style_2 = False  # 测试报告样式2
     setting.show_print_in_console = True
 
     log.set_level(logging.INFO)  # 设置utx的log级别
