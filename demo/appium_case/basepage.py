@@ -1,14 +1,8 @@
-import time
-import unittest
-import warnings
+from appium.webdriver.common.touch_action import TouchAction
 
 from common.app_common.element_action import *
-from utx import *
-from common.app_common.read_config import *
-from common.app_common.shell_install_adb import *
 from common.app_common.shell_boot_adb import *
 from common.app_common.session import *
-from common.app_common.shell_monkey_adb import *
 
 
 class BasePage():
@@ -19,7 +13,7 @@ class BasePage():
         time.sleep(1)
         log.info("开始执行登录操作")
         log.info("----" * 15)
-        clicking(driver=self.driver, type='id_type', section_name='登录',name='手机号')
+        clicking(driver=self.driver, type='id_type', section_name='登录', name='手机号')
         inputting(driver=self.driver, type='id_type', section_name='登录', name='手机号', txt=user_number)
         log.info("输入账号")
         clicking(driver=self.driver, type='id_type', section_name='登录', name='密码')
@@ -27,6 +21,10 @@ class BasePage():
         log.info("输入密码")
         clicking(driver=self.driver, type='id_type', section_name='登录', name='登录按钮')
         log.info("点击登录")
+        # time.sleep(10)
+        # TouchAction(driver=self.driver).tap(x=98,y=409).perform()
+        # #clicking(driver=self.driver, type='location_type', section_name='选择岗位', name='岗位')
+        # clicking(driver=self.driver, type='id_type', section_name='选择岗位', name='确定')
 
     def registry(self):
         clicking(driver=self.driver,type='id_type',section_name='注册',name='注册')

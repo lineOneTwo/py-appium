@@ -25,9 +25,9 @@ def driver_begin(app):
         'platformVersion': deviceVersion,
         'appPackage': package_name,
         'appActivity': activity_name,
-        'noReset': False,
-        'resetKeyboard': True  # 将键盘给隐藏起来
-        # 'unicodeKeyboard': True,# 使用unicodeKeyboard的编码方式来发送字符串
+        'noReset': True,
+        'resetKeyboard': True,  # 将键盘给隐藏起来
+        'unicodeKeyboard': True,# 使用unicodeKeyboard的编码方式来发送字符串
     }
     # desired_caps = {
     #     "platformName": "Android",

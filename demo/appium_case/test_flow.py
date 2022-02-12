@@ -1,6 +1,8 @@
+import unittest
+
 from demo.my_test import *
 from demo.appium_case.basepage import *
-
+from utx import skip, tag, Tag
 
 
 class TestAboutSend(unittest.TestCase):
@@ -21,6 +23,7 @@ class TestAboutSend(unittest.TestCase):
         time.sleep(1)
         BasePage(driver=self.driver).skip_shuffling()
 
+    @skip
     @tag(Tag.UI_F1)
     def test_skip_agreement(self):
         """同意协议"""
@@ -28,12 +31,12 @@ class TestAboutSend(unittest.TestCase):
         BasePage(driver=self.driver).skip_agreement()
         time.sleep(10)
 
-    @skip
     @tag(Tag.UI_F1)
     def test_login(self):
         """登录"""
         BasePage(driver=self.driver).login_base(user_number=user,password=password)
 
+    @skip
     @tag(Tag.UI_F1)
     def test_registry(self):
         """点击注册按钮"""
@@ -53,21 +56,6 @@ class TestAboutSend(unittest.TestCase):
         time.sleep(1)
         BasePage(driver=self.driver).reset_password()
 
-
-
-    @skip
-    @tag(Tag.UI_F1)
-    def test_create_user_name(self):
-        """修改昵称"""
-        log.info("进入我的")
-        clicking(driver=self.driver, type=id_type, section_name='导航', name='我的')
-        log.info("进入我的个人信息")
-        clicking(driver=self.driver, type=id_type, section_name='我的', name='个人信息')
-        log.info("点击昵称进行修改")
-        clicking(driver=self.driver, type=id_type, section_name='我的', name='昵称')
-        log.info("返回")
-        clicking(driver=self.driver, type=id_type, section_name='我的', name='返回')
-        clicking(driver=self.driver, type=id_type, section_name='我的', name='返回')
 
     @skip
     @tag(Tag.UI_F1)
