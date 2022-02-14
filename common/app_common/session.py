@@ -25,7 +25,7 @@ def driver_begin(app):
         'platformVersion': deviceVersion,
         'appPackage': package_name,
         'appActivity': activity_name,
-        'noReset': True,
+        'noReset': True,  #启动app时不要清除app里的原有的数据
         'resetKeyboard': True,  # 将键盘给隐藏起来
         'unicodeKeyboard': True,# 使用unicodeKeyboard的编码方式来发送字符串
     }
@@ -34,6 +34,9 @@ def driver_begin(app):
     #     "platformVersion": "7.1.2",
     #     "deviceName": "emulator-5554",
     #     "appPackage": "com.wanteng.handheldcity",
-    #     "appActivity": "activity.HandheldLoginActivity"
+    #     "appActivity": "activity.HandheldLoginActivity",
+    #     'noReset': True,  # 启动app时不要清除app里的原有的数据
+    #     'resetKeyboard': True,  # 将键盘给隐藏起来
+    #     'unicodeKeyboard': True,  # 使用unicodeKeyboard的编码方式来发送字符串
     # }
     return webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
