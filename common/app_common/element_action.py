@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support.wait import WebDriverWait
 from common.app_common.read_config import read_ini
 from config.load_file import *
@@ -25,14 +27,14 @@ def looking_for_element(driver, type, section_name, name):  # 根据元素类型
             return WebDriverWait(driver, 30).until(lambda x: x.find_element_by_id(the_name1))
         if type == 'location_type':  # tap
             the_name2 = read_ini(ini_file_path=load_file('location_ini'), name=section_name, value=name)
-            return WebDriverWait(driver, 30).until(lambda x: x.tap(list(the_name2), 1000))
+            return WebDriverWait(driver, 30).until(lambda x: x.tap(the_name2.split(), 3000))
         if type == 'xpath_type':  # xpath
             the_name4 = read_ini(ini_file_path=load_file('xpath_ini'), name=section_name, value=name)
             print(the_name4)
             return WebDriverWait(driver, 25).until(lambda x: x.find_element_by_xpath(the_name4))
         if type == 'text_type':  # text
             the_name5 = read_ini(ini_file_path=load_file('text_ini'), name=section_name, value=name)
-            return WebDriverWait(driver, 25).until(lambda x: x.find_element_by_link_text(the_name5))
+            return WebDriverWait(driver, 50).until(lambda x: x.find_element_by_android_uiautomator('new UiSelector().text("{}")'.format(the_name5)))
     except TypeError:
         print("抱歉，找不到元素")
     except TimeoutError:
@@ -40,6 +42,7 @@ def looking_for_element(driver, type, section_name, name):  # 根据元素类型
 
 
 def clicking(driver, type, section_name, name):  # 点击
+    time.sleep(3)
     looking_for_element(driver=driver, type=type, section_name=section_name, name=name).click()
 
 

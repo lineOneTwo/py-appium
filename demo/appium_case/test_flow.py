@@ -5,17 +5,17 @@ from demo.appium_case.basepage import *
 from utx import skip, tag, Tag
 
 
-class TestAboutSend(unittest.TestCase):
+class TestAboutAddEvent(unittest.TestCase):
     """
     用户登录
-    跳过权限弹窗
-    找到联系人发送消息
+    添加事件
     """
 
     @classmethod
     def setUpClass(cls):  # setUpClass所有用例开始前执行一遍，但是必须使用类函数装饰器
         cls.driver = driver_begin(app_name)
         log.debug("初始化APP，测试数据初始化")
+
     @skip
     @tag(Tag.UI_F1)
     def test_skip_shuffling(self):
@@ -31,10 +31,17 @@ class TestAboutSend(unittest.TestCase):
         BasePage(driver=self.driver).skip_agreement()
         time.sleep(10)
 
+    # @skip
     @tag(Tag.UI_F1)
     def test_login(self):
         """登录"""
         BasePage(driver=self.driver).login_base(user_number=user,password=password)
+    # <appium.webdriver.webdriver.WebDriver (session="60010865-521c-4169-922c-51be57a3bfbe")>
+
+    @tag(Tag.UI_F1)
+    def test_add_event(self):
+        """添加事件"""
+        BasePage(driver=self.driver).add_event()
 
     @skip
     @tag(Tag.UI_F1)
@@ -55,7 +62,6 @@ class TestAboutSend(unittest.TestCase):
         """找回密码"""
         time.sleep(1)
         BasePage(driver=self.driver).reset_password()
-
 
     @skip
     @tag(Tag.UI_F1)

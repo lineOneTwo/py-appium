@@ -3,6 +3,7 @@ from appium.webdriver.common.touch_action import TouchAction
 from common.app_common.element_action import *
 from common.app_common.shell_boot_adb import *
 from common.app_common.session import *
+from common.app_common.read_data import *
 
 
 class BasePage():
@@ -16,6 +17,7 @@ class BasePage():
         # clicking(driver=self.driver, type='id_type', section_name='登录', name='手机号')
         inputting(driver=self.driver, type='id_type', section_name='登录', name='手机号', txt=user_number)
         log.info("输入账号")
+        clicking(driver=self.driver,type='id_type',section_name='登录',name='明文按钮')
         # clicking(driver=self.driver, type='id_type', section_name='登录', name='密码')
         inputting(driver=self.driver, type='id_type', section_name='登录', name='密码' , txt=password)
         log.info("输入密码")
@@ -48,3 +50,25 @@ class BasePage():
         time.sleep(3)
         log.info("找回密码")
         clicking(driver=self.driver,type='id_type',section_name='找回密码',name='找回')
+
+    def add_event(self):
+        time.sleep(10)
+        log.info("获取加号定位")
+        clicking(self.driver,'id_type','事件','加号')
+        # taping(driver=self.driver,type='location_type',section_name='事件',name='加号')
+        clicking(self.driver,type='id_type',section_name='事件',name='指派')
+        log.info("添加事件描述")
+        inputting(self.driver,type='id_type',section_name='事件',name='描述',txt=read_excel())
+        # log.info("选择事件位置")
+        # clicking(self.driver,'id_type','事件','位置')
+        # log.info("选择上报类型")
+        # clicking(self.driver,type='id_type',section_name='事件',name='上报类型')
+        # clicking(self.driver,type='text_type',section_name='事件',name='上报大类')
+        # clicking(self.driver,type='text_type',section_name='事件',name='上报小类')
+        # log.info("选择下级")
+        # clicking(self.driver,type='id_type',section_name='事件',name='选择下级')
+        # clicking(self.driver,type='id_type',section_name='事件',name='确定指派')
+        # clicking(self.driver,type='text_type',section_name='事件',name='指派至下级')
+        # clicking(self.driver,type='id_type',section_name='事件',name='提交事件')
+
+# C:\Program Files\Android\Android-sdk\tools
