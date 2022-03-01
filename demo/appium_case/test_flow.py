@@ -3,6 +3,7 @@ import unittest
 from demo.my_test import *
 from demo.appium_case.basepage import *
 from utx import skip, tag, Tag
+from common.app_common.read_data import *
 
 
 class TestAboutAddEvent(unittest.TestCase):
@@ -38,10 +39,12 @@ class TestAboutAddEvent(unittest.TestCase):
         BasePage(driver=self.driver).login_base(user_number=user,password=password)
     # <appium.webdriver.webdriver.WebDriver (session="60010865-521c-4169-922c-51be57a3bfbe")>
 
+
     @tag(Tag.UI_F1)
     def test_add_event(self):
         """添加事件"""
         BasePage(driver=self.driver).add_event()
+
 
     @skip
     @tag(Tag.UI_F1)
